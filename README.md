@@ -1,1 +1,1 @@
-blog coming soon
+# Check blog [here](https://thebagvaulthq.com)
