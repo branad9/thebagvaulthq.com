@@ -1,0 +1,133 @@
+# Site basics
+title: "The Bag Vault HQ | Luxury Handbags, Unlocked"
+description: "Your guide to luxury handbags—explore iconic brands, discover standout styles, and get thoughtful advice on choosing, caring for, and collecting designer bags."
+url: "https://thebagvaulthq.com/"
+baseurl: ""
+author: "tecqmate"
+
+# Build settings
+markdown: kramdown
+permalink: /blog/:title/
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-remote-theme
+  - jekyll-paginate-v2
+
+# Pagination (jekyll-paginate-v2)
+pagination:
+  enabled: true
+  per_page: 6
+  permalink: '/page/:num/'
+  sort_field: 'date'
+  sort_reverse: true
+  trail:
+    before: 2
+    after: 2
+
+# Autopages for collections
+autopages:
+  enabled: true
+  collections:
+    enabled: false
+  categories:
+    enabled: false
+  tags:
+    enabled: false
+
+# Kramdown settings (for Prism.js compatibility)
+kramdown:
+  syntax_highlighter: none
+  input: GFM
+  hard_wrap: false
+
+# Collections
+collections:
+  docs:
+    output: true
+    permalink: /docs/:path/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "docs"
+    values:
+      layout: "docs"
+
+# Theme Configuration
+theme_config:
+  # Announcement Bar
+  announcement_bar:
+    enabled: true
+    id: "v1-launch"
+    message: "Minima+ v1.0 is now live with Tailwind CSS v4 support!"
+    tag: "New"
+    link_text: "Check out the changelog"
+    link_url: "/changelog/"
+    closable: true
+
+  # Colors (Tailwind color names)
+  colors:
+    primary: "indigo"
+    secondary: "slate"
+    accent: "amber"
+
+  # Typography
+  fonts:
+    heading: "Inter"
+    body: "Inter"
+    mono: "JetBrains Mono"
+
+  # Layout
+  layout:
+    max_width: "7xl"
+    content_width: "3xl"
+    sidebar: true
+
+  # Design Tokens (Customization)
+  tokens:
+    radius: "0.75rem"
+    font_weight_heading: "700"
+    font_weight_body: "400"
+
+  # Components visibility
+  components:
+    show_toc: true
+    show_reading_time: true
+    show_date: true
+    show_author: true
+    show_tags: true
+    show_categories: true
+
+  # Features
+  features:
+    dark_mode: true
+    search: true
+    comments: false
+
+# SEO
+seo:
+  og_image: "/assets/images/og-default.png"
+  twitter_handle: ""
+
+# Analytics (optional)
+analytics:
+  google_analytics: ""
+  plausible: ""
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md

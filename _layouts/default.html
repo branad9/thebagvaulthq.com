@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  {% include head.html %}
+  {% include code-highlight.html %}
+  {% include mermaid.html %}
+</head>
+<body class="min-h-screen flex flex-col bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased">
+  {% include components/announcement-bar.html %}
+  {% include header.html %}
+
+  <main class="flex-grow">
+    {{ content }}
+  </main>
+
+  {% include footer.html %}
+
+  <!-- Heading Anchor Links -->
+  {% include heading-anchors.html %}
+
+  <!-- Back to Top Button -->
+  {% include back-to-top.html %}
+
+  <!-- Search Modal -->
+  {% if site.theme_config.features.search %}
+  {% include search.html %}
+  {% endif %}
+</body>
+</html>

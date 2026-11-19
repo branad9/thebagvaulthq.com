@@ -1,0 +1,101 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% include seo.html %}
+
+<!-- Tailwind CSS v4 CDN with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=typography,forms,aspect-ratio,container-queries"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        borderRadius: {
+          'lg': 'var(--radius-default)',
+          'xl': 'calc(var(--radius-default) * 1.5)',
+          '2xl': 'calc(var(--radius-default) * 2)',
+        },
+        fontWeight: {
+          'heading': 'var(--font-weight-heading)',
+          'body': 'var(--font-weight-body)',
+        },
+        fontFamily: {
+          sans: ['{{ site.theme_config.fonts.body | default: "Inter" }}', 'system-ui', 'sans-serif'],
+          heading: ['{{ site.theme_config.fonts.heading | default: "Inter" }}', 'system-ui', 'sans-serif'],
+          mono: ['{{ site.theme_config.fonts.mono | default: "JetBrains Mono" }}', 'monospace'],
+        },
+        colors: {
+          primary: {
+            50: 'var(--color-primary-50)',
+            100: 'var(--color-primary-100)',
+            200: 'var(--color-primary-200)',
+            300: 'var(--color-primary-300)',
+            400: 'var(--color-primary-400)',
+            500: 'var(--color-primary-500)',
+            600: 'var(--color-primary-600)',
+            700: 'var(--color-primary-700)',
+            800: 'var(--color-primary-800)',
+            900: 'var(--color-primary-900)',
+          }
+        },
+        maxWidth: {
+          'content': '65ch',
+          'container': 'var(--max-width-container)',
+        },
+        typography: {
+          DEFAULT: {
+            css: {
+              '--tw-prose-links': 'var(--color-primary-600)',
+              '--tw-prose-invert-links': 'var(--color-primary-400)',
+              a: {
+                color: 'var(--color-primary-600)',
+                '&:hover': {
+                  color: 'var(--color-primary-700)',
+                },
+              },
+              'code::before': { content: '""' },
+              'code::after': { content: '""' },
+            },
+          },
+        },
+      }
+    }
+  }
+</script>
+
+<!-- Theme Variables -->
+<style>
+  :root {
+    /* Colors */
+    {%- assign primary_color_name = site.theme_config.colors.primary | default: "indigo" -%}
+    {%- assign primary_colors = site.data.colors[primary_color_name] | default: site.data.colors.indigo -%}
+    {%- for color in primary_colors -%}
+    --color-primary-{{ color[0] }}: {{ color[1] }};
+    {%- endfor -%}
+
+    /* UI Tokens */
+    --radius-default: {{ site.theme_config.tokens.radius | default: "0.75rem" }};
+    --font-weight-heading: {{ site.theme_config.tokens.font_weight_heading | default: "700" }};
+    --font-weight-body: {{ site.theme_config.tokens.font_weight_body | default: "400" }};
+    --max-width-container: {{ site.theme_config.layout.max_width | default: "7xl" }};
+  }
+</style>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Custom Styles (inlined for remote theme compatibility) -->
+{% include custom-styles.html %}
+
+<!-- Dark mode initialization -->
+<script>
+  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+</script>
+
+{% include analytics.html %}

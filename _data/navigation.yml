@@ -1,0 +1,30 @@
+# Main navigation links
+main:
+  - title: "Home"
+    url: "/"
+  - title: "Blog"
+    url: "/blog/"
+  - title: "Docs"
+    url: "/docs/"
+  - title: "API"
+    url: "/api/"
+  - title: "CLI"
+    url: "/cli/"
+  - title: "Changelog"
+    url: "/changelog/"
+  - title: "UI Kit"
+    url: "/docs/ui-kit/"
+
+# Call to action button in header (optional)
+cta:
+  title: "Get Started"
+  url: "/docs/getting-started/"
+
+# Homepage CTA links
+hero:
+  primary:
+    title: "Get Started"
+    url: "/docs/getting-started/"
+  secondary:
+    title: "View Changelog"
+    url: "/changelog/"
