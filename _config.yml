@@ -1,5 +1,6 @@
 # Site basics
-title: "The Bag Vault HQ | Luxury Handbags, Unlocked"
+title: "The Bag Vault HQ"
+subtitle: "Luxury Handbags, Unlocked"
 description: "Your guide to luxury handbags—explore iconic brands, discover standout styles, and get thoughtful advice on choosing, caring for, and collecting designer bags."
 url: "https://thebagvaulthq.com/"
 baseurl: ""
@@ -67,7 +68,7 @@ defaults:
 theme_config:
   # Announcement Bar
   announcement_bar:
-    enabled: true
+    enabled: false
     id: "v1-launch"
     message: "Minima+ v1.0 is now live with Tailwind CSS v4 support!"
     tag: "New"
